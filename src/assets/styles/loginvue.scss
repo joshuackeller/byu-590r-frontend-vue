@@ -1,0 +1,45 @@
+.login-form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.login-form-inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  max-width: 500px;
+  border-radius: 15px;
+  padding: 20px;
+  flex: 1 1 0%;
+}
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  @media (min-width: 600px) {
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: space-between;
+    row-gap: 0px;
+  }
+}
+.login-button {
+  width: 100%;
+  @media (min-width: 600px) {
+    width: 45%;
+  }
+}
+.dialog {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-primary {
+  background-color: #047857;
+}
