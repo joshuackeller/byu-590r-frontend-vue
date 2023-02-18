@@ -11,6 +11,8 @@
   border-radius: 15px;
   padding: 20px;
   flex: 1 1 0%;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 .login-buttons {
   display: flex;
@@ -32,7 +34,6 @@
 }
 .dialog {
   padding: 10px;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -42,4 +43,8 @@
 }
 .btn-primary {
   background-color: #047857;
+}
+
+.register-dialog {
+  padding: 25px;
 }
