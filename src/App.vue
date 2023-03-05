@@ -135,6 +135,7 @@ export default {
       <v-spacer></v-spacer>
       <v-btn to="/" default>Home</v-btn>
       <v-btn to="about">About</v-btn>
+      <v-btn to="books">Books</v-btn>
 
       <div class="text-center">
         <v-menu open-on-hover>
