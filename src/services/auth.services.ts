@@ -29,7 +29,6 @@ class AuthService {
   }
 
   forgotPassword(forgotEmail) {
-    console.log("inside service -- ", forgotEmail);
     const formData = new FormData();
     formData.append("email", forgotEmail);
     return axios
