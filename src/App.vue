@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import { RouterLink, RouterView } from "vue-router";
 import LoginView from "./views/LoginView.vue";
 import { mapState } from "vuex";
