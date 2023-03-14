@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import { mapState } from "vuex";
 import BookItem from "../components/BookItem.vue";
 export default {
