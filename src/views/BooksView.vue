@@ -64,27 +64,28 @@ export default {
         <v-text-field
           v-model="name"
           type="text"
-          label="Name"
+          label="Name *"
           required
         ></v-text-field>
         <v-text-field
           v-model="description"
           type="text"
-          label="Description"
+          label="Description *"
           required
         ></v-text-field>
         <v-text-field
           v-model="inventory_total_qty"
           type="number"
-          label="Inventory Total Quantity"
+          label="Inventory Total Quantity *"
           required
         ></v-text-field>
         <v-file-input
           @change="chooseImage"
           class=""
-          label="File input"
+          label="File input *"
           required
         ></v-file-input>
+        <div class="text-sm-body-2">* indicates a required field</div>
         <v-btn @click="createNewBook" color="green">Create Book </v-btn>
       </v-card>
     </v-dialog>
