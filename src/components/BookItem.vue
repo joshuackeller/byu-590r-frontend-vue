@@ -1,5 +1,4 @@
 <script lang="ts">
-import { TrashIcon } from "@vue-hero-icons/outline";
 export default {
   name: "BookItem",
   props: {
@@ -10,6 +9,8 @@ export default {
   },
   data() {
     return {
+      dueDate: "",
+      checkedOutBook: false,
       updateDialog: false,
       name: "",
       description: "",
@@ -32,8 +33,16 @@ export default {
         .dispatch("books/deleteBook", this.book.id)
         .then(() => (this.deleteDialog = false));
     },
+
     checkoutBook() {
-      this.$store.dispatch("books/checkoutBook", this.book.id);
+      this.$store
+        .dispatch("books/checkoutBook", {
+          bookId: this.book.id,
+          due_date: this.dueDate,
+        })
+        .finally(() => {
+          this.checkedOutBook = false;
+        });
     },
     returnBook() {
       this.$store.dispatch("books/returnBook", this.book.id);
@@ -66,6 +75,22 @@ export default {
 
 <template>
   <v-card>
+    <v-dialog v-model="checkedOutBook" width="auto">
+      <v-card>
+        <v-card-text>
+          Are you sure you wish to check out this book?
+        </v-card-text>
+        <v-card-text>
+          <input type="date" v-model="dueDate" />
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="red" @click="checkedOutBook = false">No</v-btn>
+          <v-btn color="green" @click="checkoutBook()" :disabled="!dueDate"
+            >Yes</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <div class="book-item">
       <div class="d-flex justify-space-between">
         <v-btn
@@ -172,7 +197,7 @@ export default {
         <div class="d-flex justify-space-between">
           <v-btn
             :disabled="book.inventory_total_qty <= book.checked_qty"
-            @click="checkoutBook"
+            @click="checkedOutBook = true"
             color="green"
           >
             Checkout

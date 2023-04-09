@@ -69,10 +69,11 @@ export const books = {
       );
       if (index != -1) state.books.splice(index, 1);
     },
-    checkoutBookSuccess(state, bookId) {
+    checkoutBookSuccess(state, { bookId }) {
       const index = state.books.findIndex(
         (stateBook) => stateBook.id == bookId
       );
+
       if (index != -1) state.books[index].checked_qty += 1;
     },
     returnBookSuccess(state, bookId) {

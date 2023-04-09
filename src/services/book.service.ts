@@ -49,13 +49,23 @@ class BookService {
     });
   }
 
-  checkoutBook(bookId) {
-    return axios.put(
+  // checkoutBook(bookId) {
+  //   return axios.put(
+  //     API_URL + `books/${bookId}/checkout`,
+  //     {},
+  //     {
+  //       headers: authHeader(),
+  //     }
+  //   );
+  // }
+  checkoutBook({ bookId, due_date }) {
+    return axios.post(
       API_URL + `books/${bookId}/checkout`,
-      {},
       {
-        headers: authHeader(),
-      }
+        bookId,
+        due_date,
+      },
+      { headers: authHeader() }
     );
   }
 
