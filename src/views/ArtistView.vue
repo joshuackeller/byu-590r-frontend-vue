@@ -2,6 +2,7 @@
 import { mapState } from "vuex";
 import LoadingItem from "../components/LoadingItem.vue";
 import AlbumItem from "@/components/AlbumItem.vue";
+import { all } from "axios";
 export default {
   name: "ArtistView",
   components: {
@@ -18,13 +19,17 @@ export default {
       },
       newGenres() {
         const allGenres = this.$store.state.genres.genres;
-        const newGenres = allGenres.filter(
-          (genre) =>
-            !this.artistGenres.some(
-              (artistGenre) => artistGenre.id === genre.id
-            )
-        );
-        return newGenres;
+        if (allGenres && allGenres?.length > 0) {
+          const newGenres = allGenres?.filter(
+            (genre) =>
+              !this.artistGenres?.some(
+                (artistGenre) => artistGenre.id === genre.id
+              )
+          );
+          return newGenres;
+        } else {
+          return [];
+        }
       },
       artistAlbums() {
         return this.$store.state.artists.artist.albums;
